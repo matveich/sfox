@@ -1,5 +1,4 @@
-The list of commands:
-	/weather [location] - return the current weather in your location (Novosibirsk as default).
+Request form: command [local_params]
+Commands:
+	/weather [location] - return the current weather in your location (Novosibirsk as default)
 
-Extra params (available in all commands):
-	HH:MM [DD.MM.YYYY] - set time for executing the command
