@@ -1,0 +1,2 @@
+Hi! I'm just another telgram bot. I was made for help my creator. However, you can always ask me do something that i can. There is a list of commands i can execute below. Notice, that you can send some extra params with a main command. There is a list of them either.  
+/weather - 
