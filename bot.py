@@ -23,21 +23,26 @@ def _weather(location='Novosibirsk'):
 def _help():
 	return io.open('help.txt').read()
 
+def _start():
+	return """Hi! I'm just another telgram bot. I was made for help my creator. 
+		However, you can always ask me do something that i can. 
+		You can create an issue or join to project in github.com/matveich/sfox.git"""
+
 def _parse_command(s):
 	if s.find(' ') != -1:
 		return s[s.find('/')+1:s.find(' ')]
 	else:
 		return s[s.find('/')+1:]
 
-commands = {'weather': _weather, 'help': _help}
+commands = {'start': _start, 'help': _help, 'weather': _weather}
 
 def _launch_command(s):
 	try:
 		return commands[s]()
 	except:
-		return commands['help']()
+		return "Unknown command. /help"
 
-token = '168197682:AAFszqo37rZ2RGnUxaKQ_sLe0Iw6gt0If6w'
+token = '133385334:AAHabB1GdkdSjQr34gztlpOEK0tctS913xM'
 bot = telepot.Bot(token)
 pprint(bot.getMe())
 
@@ -46,20 +51,6 @@ def handler(msg):
 	com = _parse_command(msg['text'].encode('utf-8'))
 	text = _launch_command(com)
 	bot.sendMessage(msg['from']['id'], text)
-	while 1:
-		time.sleep(3)
-		count = 0
-		f = io.open('anya_go_sleep.txt', 'r')
-		import random
-	   	a = []
-	   	print('gh')
-		while f:
-			a.append(f.readline())
-		f.close()
-		bot.sendMessage(122358697, a[random.randint(0, len(a)-1)])
-		count+=1
-		if count == 11:
-			return
 
 
 bot.notifyOnMessage(handler)
